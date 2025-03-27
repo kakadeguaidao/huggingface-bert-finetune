@@ -51,7 +51,7 @@ if __name__ == "__main__":
                                     save_strategy="epoch",
                                     tf32=True,)
     
-    metric = evaluate.load("accuracy")
+    metric = evaluate.load("metrics/accuracy")
     
     trainer = Trainer(
     model=model,
