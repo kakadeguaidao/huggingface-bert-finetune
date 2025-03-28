@@ -41,7 +41,7 @@ if __name__ == "__main__":
     train_dataset = train_dataset.map(lambda x: tokenizer(x["text"], padding="max_length", truncation=True), batched=True)
     eval_dataset = eval_dataset.map(lambda x: tokenizer(x["text"], padding="max_length", truncation=True), batched=True)
 
-    model = AutoModelForSequenceClassification.from_pretrained("google-bert/bert-base-uncased", num_labels=2, torch_dtype="auto", cache_dir="data")
+    model = AutoModelForSequenceClassification.from_pretrained("checkpoints/checkpoint", num_labels=2, torch_dtype="auto", cache_dir="data")
 
     training_args = TrainingArguments(output_dir=ckpt_dir, 
                                     eval_strategy="epoch",
